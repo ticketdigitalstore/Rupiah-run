@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>RUPIAH BOROBUDUR PLAYON 2026</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;800;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+}
+
+:root{
+    --primary:#00e5ff;
+    --secondary:#00a2ff;
+    --dark:#021126;
+    --glass:rgba(255,255,255,0.08);
+    --white:#ffffff;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    background:#000;
+    color:white;
+    overflow-x:hidden;
+}
+
+/* VIDEO BACKGROUND */
+
+.video-bg{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    z-index:-5;
+    overflow:hidden;
+}
+
+.video-bg video{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    filter:brightness(0.35) saturate(1.3);
+}
+
+.video-overlay{
+    position:absolute;
+    inset:0;
+    background:
+    linear-gradient(to bottom, rgba(0,0,0,0.65), rgba(0,0,0,0.75)),
+    radial-gradient(circle at top, rgba(0,229,255,0.2), transparent 45%),
+    radial-gradient(circle at bottom right, rgba(0,162,255,0.2), transparent 40%);
+}
+
+/* ANIMATED LIGHT */
+
+.light{
+    position:fixed;
+    width:500px;
+    height:500px;
+    border-radius:50%;
+    background:rgba(0,229,255,0.18);
+    filter:blur(120px);
+    z-index:-3;
+    animation:float 12s infinite alternate ease-in-out;
+}
+
+.light2{
+    right:-120px;
+    bottom:-100px;
+    background:rgba(0,119,255,0.18);
+    animation-delay:3s;
+}
+
+.light1{
+    left:-100px;
+    top:-100px;
+}
+
+@keyframes float{
+    from{
+        transform:translateY(0px) translateX(0px);
+    }
+    to{
+        transform:translateY(60px) translateX(50px);
+    }
+}
+
+/* NAVBAR */
+
+nav{
+    position:fixed;
+    top:0;
+    width:100%;
+    z-index:999;
+    padding:20px 8%;
+    backdrop-filter:blur(18px);
+    background:rgba(0,0,0,0.25);
+    border-bottom:1px solid rgba(255,255,255,0.08);
+}
+
+.nav-container{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    font-family:'Orbitron',sans-serif;
+    font-size:26px;
+    font-weight:900;
+    letter-spacing:2px;
+}
+
+.logo span{
+    color:var(--primary);
+}
+
+.menu{
+    display:flex;
+    gap:35px;
+}
+
+.menu a{
+    text-decoration:none;
+    color:white;
+    font-size:15px;
+    font-weight:500;
+    transition:0.3s;
+}
+
+.menu a:hover{
+    color:var(--primary);
+}
+
+/* HERO */
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:150px 8% 100px;
+    position:relative;
+}
+
+.hero-content{
+    max-width:1200px;
+    z-index:5;
+}
+
+.badge{
+    display:inline-block;
+    padding:12px 28px;
+    border-radius:999px;
+    background:rgba(255,255,255,0.08);
+    border:1px solid rgba(255,255,255,0.12);
+    backdrop-filter:blur(12px);
+    margin-bottom:30px;
+    letter-spacing:3px;
+    font-size:13px;
+    text-transform:uppercase;
+}
+
+.hero h1{
+    font-family:'Orbitron',sans-serif;
+    font-size:95px;
+    font-weight:900;
+    line-height:1;
+    margin-bottom:25px;
+    text-transform:uppercase;
+    text-shadow:
+    0 0 20px rgba(0,229,255,0.6),
+    0 0 40px rgba(0,229,255,0.4),
+    0 0 80px rgba(0,229,255,0.2);
+}
+
+.hero h1 span{
+    color:var(--primary);
+}
+
+.hero p{
+    max-width:800px;
+    margin:auto;
+    line-height:1.9;
+    opacity:0.9;
+    font-size:18px;
+}
+
+.hero-buttons{
+    margin-top:45px;
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    padding:18px 40px;
+    border-radius:18px;
+    text-decoration:none;
+    font-weight:700;
+    transition:0.4s;
+    position:relative;
+    overflow:hidden;
+}
+
+.btn-primary{
+    background:linear-gradient(135deg,#00e5ff,#0077ff);
+    color:white;
+    box-shadow:0 0 40px rgba(0,229,255,0.45);
+}
+
+.btn-primary:hover{
+    transform:translateY(-5px) scale(1.03);
+    box-shadow:0 0 60px rgba(0,229,255,0.7);
+}
+
+.btn-outline{
+    border:1px solid rgba(255,255,255,0.2);
+    background:rgba(255,255,255,0.06);
+    color:white;
+    backdrop-filter:blur(12px);
+}
+
+.btn-outline:hover{
+    background:rgba(255,255,255,0.12);
+}
+
+/* GLASS CARDS */
+
+.info-wrapper{
+    margin-top:60px;
+    display:flex;
+    justify-content:center;
+    gap:25px;
+    flex-wrap:wrap;
+}
+
+.glass-card{
+    min-width:250px;
+    padding:30px;
+    border-radius:28px;
+    background:rgba(255,255,255,0.08);
+    backdrop-filter:blur(20px);
+    border:1px solid rgba(255,255,255,0.12);
+    box-shadow:0 10px 40px rgba(0,0,0,0.35);
+    transition:0.4s;
+}
+
+.glass-card:hover{
+    transform:translateY(-12px);
+    border-color:var(--primary);
+}
+
+.glass-title{
+    font-size:13px;
+    letter-spacing:2px;
+    opacity:0.7;
+    margin-bottom:10px;
+}
+
+.glass-value{
+    font-size:28px;
+    font-weight:700;
+}
+
+/* SECTION */
+
+section{
+    padding:120px 8%;
+    position:relative;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:70px;
+}
+
+.section-title h2{
+    font-family:'Orbitron',sans-serif;
+    font-size:58px;
+    margin-bottom:20px;
+}
+
+.section-title p{
+    max-width:720px;
+    margin:auto;
+    opacity:0.75;
+}
+
+/* CATEGORY */
+
+.category-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    gap:35px;
+}
+
+.category-card{
+    position:relative;
+    padding:45px;
+    border-radius:35px;
+    overflow:hidden;
+    background:rgba(255,255,255,0.06);
+    backdrop-filter:blur(18px);
+    border:1px solid rgba(255,255,255,0.08);
+    transition:0.5s;
+}
+
+.category-card::before{
+    content:'';
+    position:absolute;
+    inset:0;
+    background:linear-gradient(135deg,transparent,rgba(0,229,255,0.15));
+    opacity:0;
+    transition:0.5s;
+}
+
+.category-card:hover::before{
+    opacity:1;
+}
+
+.category-card:hover{
+    transform:translateY(-12px);
+    border-color:var(--primary);
+}
+
+.km{
+    font-family:'Orbitron',sans-serif;
+    font-size:80px;
+    color:var(--primary);
+    margin-bottom:15px;
+}
+
+.category-card h3{
+    font-size:30px;
+    margin-bottom:15px;
+}
+
+.category-card p{
+    opacity:0.8;
+    line-height:1.8;
+}
+
+.price{
+    margin-top:25px;
+    font-size:45px;
+    font-weight:800;
+}
+
+/* FEATURE */
+
+.feature-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:30px;
+}
+
+.feature-card{
+    padding:35px;
+    border-radius:30px;
+    background:rgba(255,255,255,0.06);
+    border:1px solid rgba(255,255,255,0.08);
+    backdrop-filter:blur(18px);
+    transition:0.4s;
+}
+
+.feature-card:hover{
+    transform:translateY(-10px);
+    border-color:var(--primary);
+}
+
+.feature-icon{
+    font-size:55px;
+    margin-bottom:20px;
+}
+
+.feature-card h3{
+    font-size:24px;
+    margin-bottom:12px;
+}
+
+/* REGISTER */
+
+.register-box{
+    max-width:950px;
+    margin:auto;
+    padding:55px;
+    border-radius:40px;
+    background:rgba(255,255,255,0.06);
+    backdrop-filter:blur(22px);
+    border:1px solid rgba(255,255,255,0.08);
+    box-shadow:0 10px 50px rgba(0,0,0,0.4);
+}
+
+.form-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:20px;
+}
+
+input,
+select,
+textarea{
+    width:100%;
+    padding:18px;
+    border:none;
+    border-radius:18px;
+    background:rgba(255,255,255,0.08);
+    color:white;
+    font-size:15px;
+    outline:none;
+    backdrop-filter:blur(10px);
+}
+
+textarea{
+    resize:none;
+}
+
+input::placeholder,
+textarea::placeholder{
+    color:rgba(255,255,255,0.6);
+}
+
+/* FOOTER */
+
+footer{
+    padding:70px 8%;
+    text-align:center;
+    background:rgba(0,0,0,0.4);
+    border-top:1px solid rgba(255,255,255,0.08);
+}
+
+.footer-logo{
+    font-family:'Orbitron',sans-serif;
+    font-size:38px;
+    font-weight:900;
+    margin-bottom:18px;
+}
+
+.footer-logo span{
+    color:var(--primary);
+}
+
+.footer-social{
+    display:flex;
+    justify-content:center;
+    gap:18px;
+    margin-top:35px;
+}
+
+.footer-social a{
+    width:60px;
+    height:60px;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:rgba(255,255,255,0.08);
+    text-decoration:none;
+    color:white;
+    font-size:22px;
+    transition:0.4s;
+}
+
+.footer-social a:hover{
+    background:var(--primary);
+    transform:translateY(-5px);
+}
+
+/* SCROLL ANIMATION */
+
+.reveal{
+    opacity:0;
+    transform:translateY(70px);
+    transition:1s;
+}
+
+.reveal.active{
+    opacity:1;
+    transform:translateY(0);
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+.hero h1{
+    font-size:55px;
+}
+
+.section-title h2{
+    font-size:40px;
+}
+
+.menu{
+    display:none;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- VIDEO BACKGROUND -->
+
+<div class="video-bg">
+    <video autoplay muted loop playsinline>
+        <source src="vidio.mp4" type="video/mp4">
+    </video>
+
+    <div class="video-overlay"></div>
+</div>
+
+<div class="light light1"></div>
+<div class="light light2"></div>
+
+<!-- NAVBAR -->
+
+<nav>
+
+    <div class="nav-container">
+
+        <div class="logo">
+            RUPIAH <span>BOROBUDUR</span>
+        </div>
+
+        <div class="menu">
+            <a href="#home">HOME</a>
+            <a href="#kategori">KATEGORI</a>
+            <a href="#benefit">BENEFIT</a>
+            <a href="#register">REGISTER</a>
+        </div>
+
+    </div>
+
+</nav>
+
+<!-- HERO -->
+
+<section class="hero" id="home">
+
+    <div class="hero-content">
+
+        <div class="badge">
+            PLAYON 2026 • LARI UNTUK BERBAGI
+        </div>
+
+        <h1>
+            RUPIAH<br>
+            <span>BOROBUDUR</span><br>
+            PLAYON 2026
+        </h1>
+
+        <p>
+            Event lari charity ultra premium cinematic terbesar di kawasan 
+            Candi Borobudur dengan experience futuristik, visual spektakuler, 
+            festival budaya, UMKM expo, QRIS experience, dan aksi sosial 
+            untuk masyarakat sekitar Borobudur.
+        </p>
+
+        <div class="hero-buttons">
+
+            <a href="#register" class="btn btn-primary">
+                DAFTAR SEKARANG
+            </a>
+
+            <a href="#kategori" class="btn btn-outline">
+                LIHAT EVENT
+            </a>
+
+        </div>
+
+        <div class="info-wrapper">
+
+            <div class="glass-card reveal">
+                <div class="glass-title">
+                    RACE DAY
+                </div>
+
+                <div class="glass-value">
+                    5 JULI 2026
+                </div>
+            </div>
+
+            <div class="glass-card reveal">
+                <div class="glass-title">
+                    LOCATION
+                </div>
+
+                <div class="glass-value">
+                    BOROBUDUR
+                </div>
+            </div>
+
+            <div class="glass-card reveal">
+                <div class="glass-title">
+                    CATEGORY
+                </div>
+
+                <div class="glass-value">
+                    5K • 10K
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- CATEGORY -->
+
+<section id="kategori">
+
+    <div class="section-title reveal">
+
+        <h2>KATEGORI LARI</h2>
+
+        <p>
+            Rasakan atmosfer race futuristik dengan ambience 
+            premium dan cinematic lighting.
+        </p>
+
+    </div>
+
+    <div class="category-grid">
+
+        <div class="category-card reveal">
+
+            <div class="km">5K</div>
+
+            <h3>FUN RUN</h3>
+
+            <p>
+                Experience lari santai dengan panorama 
+                Borobudur dan festival rakyat modern.
+            </p>
+
+            <div class="price">
+                Rp150K
+            </div>
+
+        </div>
+
+        <div class="category-card reveal">
+
+            <div class="km">10K</div>
+
+            <h3>PRO CHALLENGE</h3>
+
+            <p>
+                Tantangan profesional dengan vibe 
+                cyber futuristic dan visual spektakuler.
+            </p>
+
+            <div class="price">
+                Rp250K
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- BENEFIT -->
+
+<section id="benefit">
+
+    <div class="section-title reveal">
+
+        <h2>EVENT EXPERIENCE</h2>
+
+        <p>
+            Lebih dari sekadar event lari.
+            Ini adalah cinematic festival experience.
+        </p>
+
+    </div>
+
+    <div class="feature-grid">
+
+        <div class="feature-card reveal">
+            <div class="feature-icon">🎪</div>
+            <h3>UMKM EXPO</h3>
+            <p>
+                Festival tenant modern dan bazar rakyat 
+                terbesar di area event.
+            </p>
+        </div>
+
+        <div class="feature-card reveal">
+            <div class="feature-icon">💳</div>
+            <h3>QRIS EXPERIENCE</h3>
+            <p>
+                Booth interaktif edukasi digital 
+                dan transaksi cashless modern.
+            </p>
+        </div>
+
+        <div class="feature-card reveal">
+            <div class="feature-icon">👕</div>
+            <h3>BEST COSTUME</h3>
+            <p>
+                Kompetisi kostum futuristik 
+                dengan hadiah spektakuler.
+            </p>
+        </div>
+
+        <div class="feature-card reveal">
+            <div class="feature-icon">❤️</div>
+            <h3>CHARITY EVENT</h3>
+            <p>
+                Seluruh hasil registrasi akan didonasikan 
+                untuk masyarakat sekitar Borobudur.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- REGISTER -->
+
+<section id="register">
+
+    <div class="section-title reveal">
+
+        <h2>REGISTER NOW</h2>
+
+        <p>
+            Jadilah bagian dari event futuristik paling iconic tahun 2026.
+        </p>
+
+    </div>
+
+    <div class="register-box reveal">
+
+        <form id="registerForm">
+
+            <div class="form-grid">
+
+                <input type="text" placeholder="Nama Lengkap" required>
+
+                <input type="email" placeholder="Email Aktif" required>
+
+            </div>
+
+            <div style="margin-top:20px;">
+
+                <select required>
+                    <option>Pilih Kategori</option>
+                    <option>5K Category</option>
+                    <option>10K Category</option>
+                </select>
+
+            </div>
+
+            <div style="margin-top:20px;">
+
+                <textarea rows="5" placeholder="Pesan / Komunitas"></textarea>
+
+            </div>
+
+            <button class="btn btn-primary" style="
+            width:100%;
+            margin-top:25px;
+            border:none;
+            cursor:pointer;
+            font-size:18px;
+            ">
+
+                DAFTAR SEKARANG
+
+            </button>
+
+        </form>
+
+    </div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+
+    <div class="footer-logo">
+        RUPIAH <span>BOROBUDUR</span>
+    </div>
+
+    <p>
+        Kawasan Candi Borobudur • Magelang • Jawa Tengah
+    </p>
+
+    <div class="footer-social">
+
+        <a href="#">📷</a>
+        <a href="#">🎥</a>
+        <a href="#">🌐</a>
+        <a href="#">💬</a>
+
+    </div>
+
+    <p style="margin-top:35px;opacity:0.5;">
+        © 2026 Rupiah Borobudur Playon — All Rights Reserved
+    </p>
+
+</footer>
+
+<script>
+
+/* SCROLL REVEAL */
+
+const reveals = document.querySelectorAll('.reveal');
+
+window.addEventListener('scroll', reveal);
+
+function reveal(){
+
+    reveals.forEach(item=>{
+
+        let windowHeight = window.innerHeight;
+        let top = item.getBoundingClientRect().top;
+
+        if(top < windowHeight - 100){
+            item.classList.add('active');
+        }
+
+    });
+
+}
+
+reveal();
+
+/* FORM SUBMIT */
+
+const form = document.getElementById('registerForm');
+
+form.addEventListener('submit', function(e){
+
+    e.preventDefault();
+
+    const button = form.querySelector('button');
+
+    button.innerHTML = "PROCESSING...";
+    button.style.opacity = "0.7";
+
+    setTimeout(()=>{
+
+        button.innerHTML = "REGISTRATION SUCCESS ✓";
+
+        button.style.opacity = "1";
+
+    },2000);
+
+});
+
+/* PARALLAX */
+
+window.addEventListener('mousemove', (e)=>{
+
+    document.querySelectorAll('.light').forEach(light=>{
+
+        let x = (window.innerWidth - e.pageX * 0.03);
+        let y = (window.innerHeight - e.pageY * 0.03);
+
+        light.style.transform = `translate(${x/80}px, ${y/80}px)`;
+
+    });
+
+});
+
+</script>
+
+</body>
+</html>
